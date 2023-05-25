@@ -1,9 +1,9 @@
-from typing import Any, List, Mapping, Optional
+from typing import List, Optional
 
 from langchain.callbacks.manager import CallbackManagerForLLMRun
 from langchain.llms.base import LLM
 
-from api_key import Az_OpenAI_api_key, Az_OpenAO_endpoint, Az_Open_Deployment_name
+from api_key import Az_OpenAI_api_key, Az_OpenAI_endpoint, Az_Open_Deployment_name_gpt35
 
 import openai
 
@@ -11,7 +11,7 @@ import openai
 class CustomLLM(LLM):
         
     openai.api_key = Az_OpenAI_api_key
-    openai.api_base = Az_OpenAO_endpoint
+    openai.api_base = Az_OpenAI_endpoint
     openai.api_type = 'azure'
     openai.api_version = '2023-05-15'
 
@@ -25,7 +25,7 @@ class CustomLLM(LLM):
         stop: Optional[List[str]] = None,
         run_manager: Optional[CallbackManagerForLLMRun] = None,
     ) -> str:
-        deployment_name=Az_Open_Deployment_name
+        deployment_name=Az_Open_Deployment_name_gpt35
 
         # Send a completion call to generate an answer
         response = openai.Completion.create(engine=deployment_name, prompt=prompt, max_tokens=256, temperature=0.4,n=1)

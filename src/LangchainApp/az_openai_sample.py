@@ -1,9 +1,9 @@
-from api_key import Az_OpenAI_api_key, Az_OpenAO_endpoint, Az_Open_Deployment_name
+from api_key import Az_OpenAI_api_key, Az_OpenAI_endpoint, Az_Open_Deployment_name
 
 import openai
 
 openai.api_key = Az_OpenAI_api_key
-openai.api_base = Az_OpenAO_endpoint
+openai.api_base = Az_OpenAI_endpoint
 openai.api_type = 'azure'
 openai.api_version = '2023-05-15'
 

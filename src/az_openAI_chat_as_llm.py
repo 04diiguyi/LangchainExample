@@ -1,7 +1,17 @@
+# To run: In the current folder: 
+# python az_openAI_chat_as_llm.py
+
+# This example is a sample that uses OpenAI gpt3.5 as a llmchain
+# Please note the current AI message example does not function as expected.
+# We need more prompt engineering to get it working. However, this sample code
+# is just for demo purpose to show the functionalities.
+# Example response
+# Chicago is in the state of Illinois.
+
 import os
 
 from langchain.chat_models import AzureChatOpenAI
-from langchain import PromptTemplate, LLMChain
+from langchain import LLMChain
 from langchain.prompts.chat import (
     ChatPromptTemplate,
     SystemMessagePromptTemplate,

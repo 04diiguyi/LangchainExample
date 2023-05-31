@@ -1,4 +1,11 @@
-import streamlit as st
+# To run: In the current folder: 
+# streamlit run app_sequential_chain.py
+
+# This example is a sample that uses sequential chain that takes a user input
+# use a LLMchain step to create a youtube title based on the input, 
+# and use this title as an input to a second LLMchain step to create a youtube
+# script. These two LLMchain steps form a sequantial chain. 
+# Each llmchain uses OpenAI gpt3.5.
 
 import os
 
@@ -11,6 +18,8 @@ from langchain.prompts.chat import (
     AIMessagePromptTemplate,
     HumanMessagePromptTemplate,
 )
+
+import streamlit as st
 
 from api_key import Az_OpenAI_api_key, Az_OpenAI_endpoint, Az_Open_Deployment_name_gpt35
 

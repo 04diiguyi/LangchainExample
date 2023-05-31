@@ -1,13 +1,37 @@
+# To run: In the current folder: 
+# python app_param_single_agent.py
+
+# This example is a sample that create an agent which helps calculate the 
+# sale price of tires. This agent has two tools, one math tool,
+# one fetches tire price. In this demo, price tool gives a hard coded response, 
+# however, we can use API tool, SQL tool and even chain tool to 
+# customize it for real business logic. 
+#
+# Please note this agent only support tools with one string input, if you need
+# tools with multiple parameters, please refer to app_param_multi_agent.py
+#
+# The backend of llmchain uses OpenAI gpt3.5 chat model which is not a correct approach
+# Example response
+# > Entering new AgentExecutor chain...
+# I need to find the price of Good Year tires
+# Action: Search Price
+# Action Input: "Good Year tires price"
+# Observation: Tire Good Year tires price is $150 each.
+# Thought:I need to calculate the total cost for four tires
+# Action: Calculator
+# Action Input: 150 x 4
+# Observation: Answer: 600
+# > Finished chain.
+# answer: 600
+
 import os
 
-from langchain.agents import load_tools
+from langchain import LLMMathChain
 from langchain.agents import initialize_agent, Tool
 from langchain.agents import AgentType
 from langchain.chat_models import AzureChatOpenAI
 
 from api_key import Az_OpenAI_api_key, Az_OpenAI_endpoint, Az_Open_Deployment_name_gpt35
-from langchain import LLMMathChain
-
 from tools.tool_price import price_api
 
 os.environ["OPENAI_API_TYPE"] = "azure"

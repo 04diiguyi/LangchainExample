@@ -1,3 +1,28 @@
+# To run: In the current folder: 
+# python az_openAI_chat.py
+
+# This example is a sample that uses OpenAI gpt3.5 as a chat model
+# It includes three types of requests, 
+# The first is a chat with only human messages
+# The second is a chat with both system and human messages
+# The third one is for streaming chat
+
+# Example response
+# J'aime programmer.
+
+# There were several important events that happened in 1986, 
+# but one of the most significant events was the explosion of the Chernobyl 
+# nuclear power plant in Ukraine on April 26, 1986. It was the worst nuclear 
+# disaster in history, and it had a significant impact on the environment and 
+# the health of people in the surrounding areas.
+
+# Verse 1:
+# Bubbles rising to the top
+# A refreshing drink that never stops
+# Clear and crisp, it's oh so pure
+# Sparkling water, I can't ignore
+# ...
+
 import os
 
 from langchain.chat_models import AzureChatOpenAI

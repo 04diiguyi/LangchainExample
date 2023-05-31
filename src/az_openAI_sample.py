@@ -2,6 +2,9 @@
 # python az_openAI_chain_incorrect_sample.py
 
 # This example is a sample that directly calls OpenAI gpt3.
+# Example response
+# Sending a test completion job
+# Write a tagline for an ice cream shop. Cool down with your favorite treat!
 
 import openai
 
@@ -20,5 +23,3 @@ start_phrase = 'Write a tagline for an ice cream shop. '
 response = openai.Completion.create(engine=deployment_name, prompt=start_phrase, max_tokens=100)
 text = response['choices'][0]['text'].replace('\n', '').replace(' .', '.').strip()
 print(start_phrase+text)
-
-print(text)

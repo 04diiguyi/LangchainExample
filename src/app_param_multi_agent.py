@@ -125,7 +125,7 @@ tools = [
     StructuredTool.from_function(inventory_api),
 ]
 
-agent = initialize_agent(tools, chat, agent=AgentType.STRUCTURED_CHAT_ZERO_SHOT_REACT_DESCRIPTION , verbose=True)
+agent = initialize_agent(tools, chat, agent=AgentType.STRUCTURED_CHAT_ZERO_SHOT_REACT_DESCRIPTION, verbose=True)
 
 response = agent.run("I want to buy four good year tires in my local Issaquah store, \
                      do we have enough in stock and how much is the total price?")

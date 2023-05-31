@@ -3,7 +3,7 @@
 ## Overview
 
 This repository consists of examples using langchain with Azure OpenAI.
-The details of each example is recorded in [README](./src/README.md).
+The details of each example is recorded in each file.
 
 ## How to run
 

@@ -37,4 +37,5 @@ pip install -r requirements.txt --user
 
 Rename file [api_key_example.py](./src/api_key_example.py) to **api_key.py**,
 and update the values of **Az_OpenAI_api_key** and **Az_OpenAI_endpoint**.
-Then you could begin to play the examples.
+Then you could begin to play the examples. Each example has a short description
+of sample and the instruction to run the sample.

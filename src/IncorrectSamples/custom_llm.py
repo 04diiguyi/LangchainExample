@@ -1,11 +1,10 @@
 from typing import List, Optional
 
+import openai
 from langchain.callbacks.manager import CallbackManagerForLLMRun
 from langchain.llms.base import LLM
 
 from api_key import Az_OpenAI_api_key, Az_OpenAI_endpoint, Az_Open_Deployment_name_gpt35
-
-import openai
 
 
 class CustomLLM(LLM):

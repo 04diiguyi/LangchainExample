@@ -1,5 +1,5 @@
 # To run: In the current folder: 
-# python az_openAI_chain_incorrect_sample.py
+# python az_openAI_sample.py
 
 # This example is a sample that directly calls OpenAI gpt3.
 # Example response

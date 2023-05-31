@@ -1,5 +1,5 @@
 # To run: In the current folder: 
-# python app_param_multi_agent.py
+# python  python app_param_multi_chat_agent.py
 
 # This example is a sample that create an agent which helps
 # check tire inventory and calculate the sale price of tires. 
@@ -13,9 +13,11 @@
 # takes two parameters. That's why we need an agent whose
 # type is STRUCTURED_CHAT_ZERO_SHOT_REACT_DESCRIPTION
 #
-# The backend of llmchain uses OpenAI gpt3.5 chat model which is not a correct approach
+# The backend of llmchain uses OpenAI gpt3.5 chat model
+#
 # Example response. The answer is incorrect, OpenAI misunderstands both numbers.
 # The tire should be 10 only, and the price each is $150
+#
 # > Entering new AgentExecutor chain...
 # Thought: I need to check the inventory and price for four Good Year tires in the Issaquah store.
 # Action 1: inventory_api

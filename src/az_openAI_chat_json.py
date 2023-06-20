@@ -33,8 +33,8 @@ chat = AzureChatOpenAI(deployment_name=Az_Open_Deployment_name_gpt35,
 opening_sentense = "You are a json translator that translates a json string to a human readable sentence. "
 detail_message1 = "If field `drive` is `A`, it means all wheel drive, if field `drive` is `F`, it means front wheel drive, if field `drive` is `R`, it means rear wheel drive."
 detail_message2 = "If field `inventory` is `Stock` it means the vehicle is available in stock, if field `inventory` is `Transit`, it means the vehicle is in transit, if field `inventory` is an integer, it means the buyer needs to wait for that amount of months to get the vehicle."
-detail_message2 = "If field `extra_info` is `rim` it means we need rim size from the customer, if field `extra_info` is `None`, it means we do not need extra information, if field `extra_info` is `body`, it means we need car body information."
-template=opening_sentense + detail_message1 + detail_message2
+detail_message3 = "If field `extra_info` is `rim` it means we need rim size from the customer, if field `extra_info` is `None`, it means we do not need extra information, if field `extra_info` is `body`, it means we need car body information."
+template=opening_sentense + detail_message1 + detail_message2 + detail_message3
 system_message_prompt = SystemMessagePromptTemplate.from_template(template)
 human_template="{text}"
 human_message_prompt = HumanMessagePromptTemplate.from_template(human_template)
@@ -44,22 +44,22 @@ chain = LLMChain(llm=chat, prompt=chat_prompt)
 # get a chat completion from the formatted messages
 
 # Car with ID 001 is a White Ford with front wheel drive and is currently in stock. No extra information is needed.
-car_inventory_Info = Car_inventory_Info('001', 'Ford', 'White', 'F', 'Stock', 'None')
-json_string = json.dumps(car_inventory_Info, default=vars)
-print(json_string)
-response = chain.run(json_string)
+#car_inventory_Info = Car_inventory_Info('001', 'Ford', 'White', 'F', 'Stock', 'None')
+#json_string = json.dumps(car_inventory_Info, default=vars)
+#print(json_string)
+#response = chain.run(json_string)
 
-# Car with ID 002 is a red BMW with all wheel drive. We currently have 6 in stock. Please provide the rim size for this car.
+# Vehicle with ID 002 is a red BMW with all wheel drive. It is currently not in stock and the buyer needs to wait for 6 months to get the vehicle. We need rim size information from the customer.
 car_inventory_Info = Car_inventory_Info('002', 'BMW', 'Red', 'A', '6', 'rim')
 json_string = json.dumps(car_inventory_Info, default=vars)
 print(json_string)
 response = chain.run(json_string)
 
 # Car with ID 003 is a black Toyota with rear wheel drive. It is currently in transit and we need information about the car body.
-car_inventory_Info = Car_inventory_Info('003', 'Toyota', 'Black', 'R', 'Transit', 'body')
-json_string = json.dumps(car_inventory_Info, default=vars)
-print(json_string)
+#car_inventory_Info = Car_inventory_Info('003', 'Toyota', 'Black', 'R', 'Transit', 'body')
+#json_string = json.dumps(car_inventory_Info, default=vars)
+#print(json_string)
 
-response = chain.run(json_string)
+#response = chain.run(json_string)
 
 print(response)

@@ -127,12 +127,39 @@ tools = [
 
 agent = initialize_agent(tools, chat, agent=AgentType.STRUCTURED_CHAT_ZERO_SHOT_REACT_DESCRIPTION, verbose=True)
 
-response = agent.run("I want to buy four good year tires in my local Issaquah store, \
-                     do we have enough in stock and how much is the total price?")
+#response = agent.run("I want to buy four good year tires in my local Issaquah store, \
+#                     do we have enough in stock and how much is the total price?")
 
-print(response)
+#print(response)
 
-response = agent.run("I want to buy 30 good year tires in my local Issaquah store, \
+#response = agent.run("I want to buy 30 good year tires in my local Issaquah store, \
+#                     do we have enough in stock and how much is the total price?")
+
+#print(response)
+
+# Hallucination error: we do not provide store info, OpenAI hallucinate my_store to fill in the parameter `store`
+#Action:
+#```
+#{
+#  "action": "inventory_api",
+#  "action_input": {
+#    "tire": "goodyear",
+#    "store": "my_store"
+#  }
+#}
+#```
+
+#Observation: There are 10 goodyear available in store my_store.
+#Thought:Action:
+#```
+#{
+#  "action": "Search Price",
+#  "action_input": "goodyear tires"
+#}
+#```
+# ...
+
+response = agent.run("I want to buy four good year tires, \
                      do we have enough in stock and how much is the total price?")
 
 print(response)
